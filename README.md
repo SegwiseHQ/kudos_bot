@@ -141,7 +141,3 @@ python gemini_message.py
 ```
 
 This will generate a sample message and print it to the console.
-
-## License
-
-MIT

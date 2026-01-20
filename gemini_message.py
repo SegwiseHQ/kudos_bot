@@ -100,13 +100,13 @@ def get_fallback_message() -> str:
     return random.choice(fallback_messages)
 
 
-# # For testing
-# if __name__ == "__main__":
-#     # Test the function
-#     message = generate_kudos_message(
-#         receiver_name="Alice",
-#         giver_name="Bob",
-#         kudos_message="Great presentation!",
-#         kudos_count=15
-#     )
-#     print(f"Generated message: {message}")
+# For testing
+if __name__ == "__main__":
+    # Test the function
+    message = generate_kudos_message(
+        receiver_name="Alice",
+        giver_name="Bob",
+        kudos_message="Great presentation!",
+        kudos_count=15
+    )
+    print(f"Generated message: {message}")
