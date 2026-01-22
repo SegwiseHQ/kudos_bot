@@ -19,7 +19,9 @@ SLACK_SIGNING_SECRET = os.getenv("SLACK_SIGNING_SECRET")
 app = App(token=SLACK_BOT_TOKEN, signing_secret=SLACK_SIGNING_SECRET)
 
 # Kudos detection pattern: "<@U12345> ++ optional message"
-MENTION_PLUS_PATTERN = re.compile(r"<@([A-Z0-9]+)>\s*\+\+\s*(.*)?")
+# Uses non-greedy match and lookahead to support multiple kudos in one message
+# e.g., "<@U123> ++ great work <@U456> ++ awesome job"
+MENTION_PLUS_PATTERN = re.compile(r"<@([A-Z0-9]+)>\s*\+\+\s*(.*?)(?=<@[A-Z0-9]+>\s*\+\+|$)")
 
 # --- SQLite setup ---
 DB_PATH = os.getenv("DB_PATH", "/home/ubuntu/kudos.db")
